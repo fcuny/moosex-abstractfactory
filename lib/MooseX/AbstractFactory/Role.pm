@@ -22,7 +22,7 @@ sub create {
         # pull in our implementation class
         $factory->_validate_implementation_class($iclass);
 
-        eval "use $iclass";
+        Class::MOP::load_class($iclass);
 
         my $options = $factory->_options();
 
